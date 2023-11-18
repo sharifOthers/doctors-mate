@@ -63,7 +63,7 @@ def complete(text, max_tokens, temperature):
             
             final_prompt = f"Act like a doctor to save humans. The current information of the patients is: {text}. Previously some patients came with this and they are treated with this: \n{extract_infos}. Use those information and your knowledge to give doctor takes necessary steps and also give some follow up questions to ask patients .Do not include any JSON , HTML body.",  
 
-            completed_text = completion_.complete(final_prompt, 1000, temperature)
+            completed_text = completion_.complete(final_prompt, 1200, temperature)
 
             st.session_state.text_error = ""
             st.session_state.n_requests += 1
@@ -112,7 +112,7 @@ st.write(
 st.title("Welcome to DoctorsMate🩺")
 
 # text
-text = st.text_area(label="Please provide patient's info", height = 200, placeholder="Essential details required for an accurate response.\n - Age and Gender with symptoms and suspected disease names(if any).\n Example:\nA 25 year old female came with severe joint pain and swelling in both hands for eight months. Morning stiffness more than 1 hour everyday and pain is relieved gradually by doing regular activities.\n\n [Small Bug]Click-out from this input box before clicking the *Generate Suggestions* button, otherwise it will show *Please enter a text to complete.*")
+text = st.text_area(label="Please provide patient's info", height = 220, placeholder="Essential details required for an accurate response.\n - Age and Gender with symptoms and suspected disease names(if any).\n Example:\nA 25 year old female came with severe joint pain and swelling in both hands for eight months. Morning stiffness more than 1 hour everyday and pain is relieved gradually by doing regular activities.\n\n [Small Bug]Click-out from this input box before clicking the *Generate Suggestions* button, otherwise it will show *Please enter a text to complete.*")
 
 # max tokens
 max_tokens = 1024
