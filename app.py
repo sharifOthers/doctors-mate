@@ -29,7 +29,7 @@ def complete(text, max_tokens, temperature):
     """
     Complete Text.
     """
-    if st.session_state.n_requests >= 10:
+    if st.session_state.n_requests >= 5:
         st.session_state.text_error = "Too many requests. Please wait a few seconds before completing another Text."
         logging.info(f"Session request limit reached: {st.session_state.n_requests}")
         st.session_state.n_requests = 1
